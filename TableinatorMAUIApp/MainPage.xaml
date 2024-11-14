@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TableinatorMAUIApp.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center">
+            <Button Text="Про роботу" Clicked="OnWork_Clicked" />
+            <Button Text="Довідка" Clicked="HelpButton_Clicked" />
+            <Button Text="Скинути таблицю" Clicked="NewTable_Clicked" />
+
+            <StackLayout Orientation="Vertical">
+                <Button Text="Додати рядок" Clicked="AddRowButton_Clicked" />
+                <Button Text="Видалити рядок" Clicked="DeleteRowButton_Clicked" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Button Text="Додати стовпчик" Clicked="AddColumnButton_Clicked" />
+                <Button Text="Видалити стовпчик" Clicked="DeleteColumnButton_Clicked" />
+            </StackLayout>
+
+            <Button Text="Завантажити таблицю з пристрою" Clicked="LoadButton_Clicked" />
+            <Button Text="Зберегти" Clicked="SaveButton_Clicked" />
+            <Button Text="Вийти" Clicked="ExitButton_Clicked" />
+        </StackLayout>
+
+        <Entry x:Name="textInput" 
+               Text="{Binding Text, Mode=TwoWay}" 
+               Placeholder="Введіть текст" 
+               Grid.Row="2" 
+               Grid.ColumnSpan="2"
+               Focused="TextInput_Focused"
+               Unfocused="Entry_Unfocused"
+               IsEnabled="False"/>
+        <ScrollView Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid x:Name="grid" RowSpacing="0" ColumnSpacing="0" HorizontalOptions="Start" VerticalOptions="Start" Margin="30, 30, 30, 30">
+                <Grid.RowDefinitions>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
+   
